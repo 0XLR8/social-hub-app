@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, p{
+    margin-bottom: 0px;
+}
+
+input, button{
+    border: none;
+
+    &:focus{
+        outline: none;
+    }
+}
+
+body{
+    background-image: linear-gradient(to right, #2b2549, #42378d);
+}
+
+.nav-bar{
+    background-color: #645aa26f;
+
+    h1{
+        color: white;
+        font-weight: 600;
+        font-size: 37px;
+        
+        span{
+            font-weight: 800;
+            color: rgb(150, 93, 255)
+        }
+    }
+}
+
+.sign{
+    background-color: #201A31;
+    max-width: 450px;
+    margin: 0px auto;
+    color: white;
+    box-shadow: 0px 0px 10px #20144a;
+    border-radius: 15px;
+
+    h1{
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    p{
+        color: #c6c6c6;
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+
+    label, input{
+        display: block;
+        width: 100%;
+    }
+    
+    .form-floating{
+        position: relative;
+
+        label{
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #c3bafc;
+        }
+
+        input{
+            border: none;
+            background-color: #38304D;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+       
+            &:focus{
+                color: white;
+                box-shadow: none;
+                background-color: #38304D;
+            }
+        }
+        label, input{
+            padding-left: 45px;
+        }
+
+        .icon{
+            position: absolute;
+            color: #c3bafc;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .sign-btn{
+        display: block;
+        width: 160px;
+        padding: 6px 6px 8px;
+        border-radius: 10px;
+        background-color: #965DFF;
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
+        margin: 0px auto;
+
+        &:disabled{
+            opacity: 0.7;
+        }
+    }
+
+    .switch-text{
+        font-size: 16px;
+    }
+
+    .switch-btn{
+        cursor: pointer;
+        user-select: none;
+        font-weight: 800;
+        color: #b189fc;
+    }
+}
