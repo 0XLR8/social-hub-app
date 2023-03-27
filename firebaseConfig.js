@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API,
+  apiKey: 'AIzaSyAAlmvvkg1NyOaZbQl4AIXtDfe3SzeaF68',
   authDomain: "social-hub-dbbce.firebaseapp.com",
   projectId: "social-hub-dbbce",
   storageBucket: "social-hub-dbbce.appspot.com",
