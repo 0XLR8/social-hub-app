@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 export const PrivateRoute = () => {
-    const isLogged = false;
+    const {logged, pending} = useContext(AuthContext);
 
-    return isLogged ? <Outlet /> : <Navigate to='/sign' />
+    if(pending){
+        return <h1 style={{color: 'white'}}>Loading...</h1>
+    }
+
+    return logged ? <Outlet /> : <Navigate to='/sign' />
 }

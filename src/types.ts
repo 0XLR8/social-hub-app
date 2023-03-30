@@ -3,3 +3,8 @@ export type TypeUser = {
     email: string;
     username: string;
 }
+
+export type TypeAuthContext = {
+    logged: boolean;
+    pending: boolean;
+}

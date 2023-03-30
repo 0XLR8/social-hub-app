@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Navigate } from "react-router-dom";
 import { Signin } from "../components/Signin";
 import { Signup } from "../components/Signup";
+import { AuthContext } from "../context/AuthContext";
 
 export const Sign = () => {
     const [isSignIn, setIsSignIn] = useState<boolean>(true);
+    const {logged, pending} = useContext(AuthContext);
 
+    if(pending){
+        return <h1 style={{color: 'white'}}>Loading...</h1>
+    }
+
+    if(logged){
+        return <Navigate to='/' />
+    }
+    
     return(
         <div className="sign p-4">
             {isSignIn ? <Signin /> : <Signup />}
