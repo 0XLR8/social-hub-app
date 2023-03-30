@@ -20,17 +20,27 @@ body{
     background-image: linear-gradient(to right, #2b2549, #42378d);
 }
 
+.main{
+    height: 100vh;
+}
+
+.loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .nav-bar{
     background-color: #645aa26f;
 
     h1{
         color: white;
         font-weight: 600;
-        font-size: 37px;
         
         span{
             font-weight: 800;
-            color: rgb(150, 93, 255)
+            color: #965dff;
         }
     }
 
@@ -40,7 +50,9 @@ body{
         font-size: 18px;
         border: 1px solid white;
         border-radius: 10px;
-        padding: 3px 10px;
+        padding: 3px 15px 4px;
+        
+
     }
 }
 

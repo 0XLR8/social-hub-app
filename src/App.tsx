@@ -1,4 +1,4 @@
-import { Navbar } from "./components/Navbar";
+import { Header } from "./components/Header";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Sign } from "./routes/Sign";
 import { PrivateRoute } from "./routes/PrivateRoute";
@@ -15,7 +15,6 @@ export const App = () => {
 
     useEffect(() => {
         setPending(true);
-        
         auth.onAuthStateChanged(user => {
             if(user){
                 setLogged(true);
@@ -24,6 +23,7 @@ export const App = () => {
             }
             setPending(false);
         })
+
     }, [auth])
 
     return(
@@ -32,15 +32,19 @@ export const App = () => {
             pending
         }}>
             <Router>
-                <Navbar />
-                <Routes>
-                    <Route path='/sign' element={<Sign />} />
-                    <Route element={<PrivateRoute />}>
-                        <Route path='/dashboard' element={<Dashboard />} />
-                        <Route path='/profile' element={<Profile />} />
-                        <Route path='*' element={<Navigate to='/dashboard' />} />
-                    </Route>
-                </Routes>
+                <div className="main d-flex flex-column">
+                    <Header />
+                    <div className='flex-grow-1'>
+                        <Routes>
+                            <Route path='/sign' element={<Sign />} />
+                            <Route element={<PrivateRoute />}>
+                                <Route path='/dashboard' element={<Dashboard />} />
+                                <Route path='/profile' element={<Profile />} />
+                                <Route path='*' element={<Navigate to='/dashboard' />} />
+                            </Route>
+                        </Routes>
+                    </div>
+                </div>
             </Router>
         </AuthContext.Provider>
     )

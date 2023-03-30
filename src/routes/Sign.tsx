@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { Loader } from "../components/Loader";
 import { Signin } from "../components/Signin";
 import { Signup } from "../components/Signup";
 import { AuthContext } from "../context/AuthContext";
@@ -9,7 +10,7 @@ export const Sign = () => {
     const {logged, pending} = useContext(AuthContext);
 
     if(pending){
-        return <h1 style={{color: 'white'}}>Loading...</h1>
+        return <Loader />
     }
 
     if(logged){
@@ -17,7 +18,7 @@ export const Sign = () => {
     }
     
     return(
-        <div className="sign p-4">
+        <div className="sign p-4 mt-5">
             {isSignIn ? <Signin /> : <Signup />}
             <p className="switch-text text-center mb-0 mt-4">
                 {isSignIn ? "Don't have an account?" : 'Already a member?'}
