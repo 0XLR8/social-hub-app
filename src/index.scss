@@ -31,7 +31,7 @@ body{
     transform: translate(-50%, -50%);
 }
 
-.nav-bar{
+.header{
     background-color: #645aa26f;
 
     h1{
@@ -53,6 +53,71 @@ body{
         padding: 3px 15px 4px;
         
 
+    }
+}
+
+.side-nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 250px;
+    padding-top: 90px;
+    background-image: linear-gradient(to right, #2b2549, #463E78);
+    transition: 0.3s ease-in-out;
+
+    .burger{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: absolute;
+        color: white;
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        right: -22px;
+        font-size: 25px;
+        background-color: #965dff;
+        border-radius: 22px;
+    }
+
+    .nav-item{
+        width: 100%;
+
+        a{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            overflow: hidden;
+            text-decoration: none;
+            font-size: 20px;
+            color: rgb(203, 203, 203);
+            font-weight: 500;
+            border-radius: 15px;
+            padding: 7px 15px 8px;
+            background-color: #312B54;
+            transition: 0.3s ease-in-out;
+        }
+
+        .icon{
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .active{
+            background-color: #965dff;
+            color: white;
+        }
+    }
+
+    &.collapsed{
+        width: 100px;
+
+        a{
+            width: 49px;
+            border-radius: 50%;
+        }
     }
 }
 

@@ -12,7 +12,7 @@ export const Header = () => {
     }
 
     return(
-        <div className="nav-bar d-flex align-items-center justify-content-between py-4 px-5">
+        <div className="header d-flex align-items-center justify-content-between py-4 px-5">
             <h1>Social<span>Hub</span></h1>
             {logged && <button onClick={handleLogout} className="nav-btn d-flex align-items-center"><BiLogOutCircle className='me-2'/> Logout</button>}
         </div>

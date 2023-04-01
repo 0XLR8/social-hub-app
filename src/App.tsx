@@ -7,6 +7,7 @@ import { Profile } from "./routes/Profile";
 import { useEffect, useState } from "react";
 import { useAuth } from "./hooks";
 import { AuthContext } from "./context/AuthContext";
+import { SideNav } from "./components/SideNav";
 
 export const App = () => {
     const [logged, setLogged] = useState<boolean>(false);
@@ -34,7 +35,8 @@ export const App = () => {
             <Router>
                 <div className="main d-flex flex-column">
                     <Header />
-                    <div className='flex-grow-1'>
+                    <div className='flex-grow-1 d-flex'>
+                        {logged && <SideNav />}
                         <Routes>
                             <Route path='/sign' element={<Sign />} />
                             <Route element={<PrivateRoute />}>
