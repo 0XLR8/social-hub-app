@@ -8,16 +8,31 @@ import { useEffect, useState } from "react";
 import { useAuth } from "./hooks";
 import { AuthContext } from "./context/AuthContext";
 import { SideNav } from "./components/SideNav";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "./firebaseConfig";
+import { TypeUser } from "./types";
 
 export const App = () => {
     const [logged, setLogged] = useState<boolean>(false);
     const [pending, setPending] = useState<boolean>(true);
+    const [user, setUser] = useState<TypeUser | null>(null);
     const auth = useAuth();
 
     useEffect(() => {
         setPending(true);
-        auth.onAuthStateChanged(user => {
-            if(user){
+        auth.onAuthStateChanged(async userAuth => {
+            if(userAuth){
+                const snapShot = await getDocs(collection(db, 'users'));
+                snapShot.forEach(doc => {
+					if(doc.id === userAuth.uid){
+						setUser({
+                            id: userAuth.uid,
+                            avatar: doc.data().avatar, 
+                            username: doc.data().username,
+                            email: doc.data().email
+                        });
+					}
+				}) 
                 setLogged(true);
             } else {
                 setLogged(false);
@@ -30,7 +45,9 @@ export const App = () => {
     return(
         <AuthContext.Provider value={{
             logged,
-            pending
+            pending,
+            user,
+            setUser
         }}>
             <Router>
                 <div className="main d-flex flex-column">

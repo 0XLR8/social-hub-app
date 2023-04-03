@@ -1,3 +1,5 @@
+import { getStorage, ref } from "firebase/storage";
+
 export const makeSignError = (code: string) => {
     const index = code.indexOf('/');
     const cleanCode = code.slice(index + 1);
@@ -21,3 +23,5 @@ export const makeSignError = (code: string) => {
             return 'An error has occured, please try again later';
     }
 }
+
+export const getAvatarRef = (avatar: string) => ref(getStorage(), `user-icons/${avatar}`);

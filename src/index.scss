@@ -56,6 +56,30 @@ body{
     }
 }
 
+.user-info{
+    p{
+        color: white;
+        font-weight: 600;
+    }
+    .no-avatar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 42px;
+        height: 42px;
+        font-weight: 800;
+        font-size: 20px;
+        color: #965DFF;
+        border-radius: 50%;
+        background-color: #ddcefa;
+    }
+    .avatar{
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+    }
+}
+
 .side-nav{
     display: flex;
     flex-direction: column;
@@ -122,7 +146,9 @@ body{
 }
 
 .sign{
+    height: fit-content;
     background-color: #201A31;
+    width: 100%;
     max-width: 450px;
     margin: 0px auto;
     color: white;
@@ -212,5 +238,60 @@ body{
         font-weight: 600;
         border-radius: 10px;
         background-color: rgba(217, 146, 146, 0.36);
+    }
+}
+
+.profile{
+    padding: 70px 100px;
+    max-width: 700px;
+    margin: 0px auto;
+
+    .item{
+        margin-bottom: 15px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    label{
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    
+    input{
+        background-color: #2b2549;
+        color: white;
+        font-size: 18px;
+        border-radius: 10px;
+        padding: 6px 13px 8px;
+    }
+
+    .profile-avatar{
+        cursor: pointer;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 55px;
+        height: 55px;
+        margin-left: 15px;
+        border: 3px solid transparent;
+        
+        img{
+            width: 100%;
+        }
+
+        &.active{
+            border: 3px solid rgb(34, 235, 34);
+        }
+    }
+    .profile-btn{
+        background-color: #965DFF;
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 5px 10px;
+        width: 130px;
+        border-radius: 15px;
     }
 }

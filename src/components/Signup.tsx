@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BsEnvelope, BsLock, BsPerson } from 'react-icons/bs';
 import { useAuth } from "../hooks";
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import { db } from "../firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { makeSignError } from "../utils";
@@ -41,10 +41,10 @@ export const Signup = () => {
                 const userCredentials = await createUserWithEmailAndPassword(auth, signup.email, signup.password)
                 
                 if(userCredentials){
-                    await addDoc(collection(db, 'users'), {
+                    await setDoc(doc(db, 'users', userCredentials.user.uid), {
                         username: signup.username,
                         email: signup.email,
-                        avatar: ''
+                        avatar: null
                     });
                 } else {
                     throw Error;
