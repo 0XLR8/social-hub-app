@@ -78,8 +78,6 @@ export const App = () => {
 
     }, [auth])
 
-    console.log(avatarUrlList);
-
     return(
         <AuthContext.Provider value={{
             logged,

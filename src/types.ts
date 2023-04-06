@@ -21,3 +21,17 @@ export type TypeAuthContext = {
     setAvatarUrlList: (avatarUrlList: AvatarUrlList) => void;
     setUser: (user: TypeUser | null) => void;
 }
+
+export type TypeChats = {
+    id: string;
+    userId: string;
+    content: string;
+    timeStamp: {
+        seconds: number;
+        nanoseconds: number;
+    };
+}
+
+export type TypeChatContext = {
+    chatList: TypeChats[]
+}
