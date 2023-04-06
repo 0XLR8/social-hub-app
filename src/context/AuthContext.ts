@@ -5,5 +5,7 @@ export const AuthContext = createContext<TypeAuthContext>({
     logged: false, 
     pending: true, 
     user: null,
-    setUser: (user) => {}
+    avatarUrlList: [],
+    setAvatarUrlList: () => {},
+    setUser: () => {}
 })

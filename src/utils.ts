@@ -4,8 +4,6 @@ export const makeSignError = (code: string) => {
     const index = code.indexOf('/');
     const cleanCode = code.slice(index + 1);
 
-    console.log(cleanCode);
-
     switch(cleanCode){
         case 'email-already-in-use': 
             return 'The email address is already in use by another account.';

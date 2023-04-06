@@ -3,12 +3,17 @@ import { useAuth } from '../hooks';
 import { UserInfo } from './UserInfo';
 import { AuthContext } from "../context/AuthContext"
 import { useContext } from 'react';
+import { db } from '../firebaseConfig';
+import { doc, updateDoc } from 'firebase/firestore';
 
 export const HeaderLoggedPanel = () => {
     const auth = useAuth();
     const {user} = useContext(AuthContext)
     
-    const handleLogout = () => {
+    const handleLogout = async () => {
+        await updateDoc(doc(db, 'users', user!.id), {
+            online: false
+        })
         auth.signOut();
     }
 

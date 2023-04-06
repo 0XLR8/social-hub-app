@@ -44,7 +44,8 @@ export const Signup = () => {
                     await setDoc(doc(db, 'users', userCredentials.user.uid), {
                         username: signup.username,
                         email: signup.email,
-                        avatar: null
+                        avatar: null,
+                        online: false
                     });
                 } else {
                     throw Error;

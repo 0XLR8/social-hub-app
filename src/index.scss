@@ -295,3 +295,35 @@ body{
         border-radius: 15px;
     }
 }
+
+.online-users{
+    width: 250px;
+    background-color: #504694;
+    border-top: 2px solid #3F3584;
+
+    h2{
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    .user-list{
+        .user-info{
+            margin-bottom: 15px;
+            
+            .no-avatar, .avatar{
+                width: 35px;
+                height: 35px;
+            }
+
+            p{
+                font-size: 15px;
+            }
+
+            &.offline{
+                opacity: 0.5;
+            }
+        }
+    }
+}
